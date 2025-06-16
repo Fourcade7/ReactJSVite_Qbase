@@ -114,7 +114,11 @@ function LoginScreen(){
     try {
       setShow(true);
       setTitle("Requesting...");
+<<<<<<< HEAD
       const response = await loginReq(data); // login request yuborildiasdf
+=======
+      const response = await loginReq(data); // login request yuborildi
+>>>>>>> 01ceafe (fcommit)
       const result= await response.json();
       if(response.ok){
              
@@ -193,7 +197,11 @@ function LoginScreen(){
                                 onChange={(e) => setPhone(e.target.value)}
                                 />
                                 <Form.Text className="text-muted">
+<<<<<<< HEAD
                                   We'll never share your phone with anyone else..
+=======
+                                  We'll never share your phone with anyone else.
+>>>>>>> 01ceafe (fcommit)
                                 </Form.Text>
                               </Form.Group>
 
