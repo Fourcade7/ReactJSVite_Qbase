@@ -114,7 +114,7 @@ function LoginScreen(){
     try {
       setShow(true);
       setTitle("Requesting...");
-      const response = await loginReq(data); // login request yuborildi
+      const response = await loginReq(data); // login request yuborildiasdf
       const result= await response.json();
       if(response.ok){
              
@@ -193,7 +193,7 @@ function LoginScreen(){
                                 onChange={(e) => setPhone(e.target.value)}
                                 />
                                 <Form.Text className="text-muted">
-                                  We'll never share your phone with anyone else.
+                                  We'll never share your phone with anyone else..
                                 </Form.Text>
                               </Form.Group>
 
