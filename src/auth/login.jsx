@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { motion } from "motion/react"
 import { AnimatePresence } from "motion/react"
 
-import loginReq from "./auth";
+import {loginReq} from "./auth";
 import { div } from "motion/react-client";
 
 
@@ -143,10 +143,10 @@ function LoginScreen(){
 
     return(
       <div data-bs-theme="darkx" className="container-fluid vh-100 bg-darkx">
-        <div data-bs-theme="darkx" className="container-sm vh-100 bg-darkx">
+        <div data-bs-theme="darkx" className="container-sm vh-100 w-50 bg-darkx">
                 <NavbarScreen></NavbarScreen>
                 <div  data-bs-theme="darkx" className="h-75 d-flex align-items-center justify-content-center">
-                  <Col  className="col-12 col-xl-4 col-md-6 col-lg-6 col-sm-12">
+                  <Col  className="col-12 col-xl-6 col-md-8 col-lg-7 col-sm-12">
                       <motion.div layout >
                         <Col className="d-flex align-items-center justify-content-center">
                         <h5 className="text-dark mb-3">{title}</h5>
