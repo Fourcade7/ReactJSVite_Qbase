@@ -114,11 +114,10 @@ function LoginScreen(){
     try {
       setShow(true);
       setTitle("Requesting...");
-<<<<<<< HEAD
-      const response = await loginReq(data); // login request yuborildiasdf
-=======
+
+
       const response = await loginReq(data); // login request yuborildi
->>>>>>> 01ceafe (fcommit)
+
       const result= await response.json();
       if(response.ok){
              
@@ -143,14 +142,14 @@ function LoginScreen(){
  
 
     return(
-      <div data-bs-theme="dark" className="container-fluid vh-100 bg-dark">
-        <div data-bs-theme="dark" className="container-sm vh-100 bg-dark">
+      <div data-bs-theme="darkx" className="container-fluid vh-100 bg-darkx">
+        <div data-bs-theme="darkx" className="container-sm vh-100 bg-darkx">
                 <NavbarScreen></NavbarScreen>
-                <div  data-bs-theme="dark" className="h-75 d-flex align-items-center justify-content-center">
+                <div  data-bs-theme="darkx" className="h-75 d-flex align-items-center justify-content-center">
                   <Col  className="col-12 col-xl-4 col-md-6 col-lg-6 col-sm-12">
                       <motion.div layout >
                         <Col className="d-flex align-items-center justify-content-center">
-                        <h5 className="text-white mb-3">{title}</h5>
+                        <h5 className="text-dark mb-3">{title}</h5>
                         </Col>
                       </motion.div>
                       <AnimatePresence mode="wait">
@@ -197,11 +196,8 @@ function LoginScreen(){
                                 onChange={(e) => setPhone(e.target.value)}
                                 />
                                 <Form.Text className="text-muted">
-<<<<<<< HEAD
-                                  We'll never share your phone with anyone else..
-=======
                                   We'll never share your phone with anyone else.
->>>>>>> 01ceafe (fcommit)
+
                                 </Form.Text>
                               </Form.Group>
 
