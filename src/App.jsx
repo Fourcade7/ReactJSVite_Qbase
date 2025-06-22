@@ -5,9 +5,10 @@ import { Routes } from "react-router-dom"
 import { Route } from "react-router-dom"
 import LoginScreen from "./auth/login"
 import RegisterScreen from "./auth/register"
+import { HomeScreen } from "./home/home"
 
 
-
+//945540308 913740377
 
 function App() {
   
@@ -15,7 +16,7 @@ function App() {
   return (
      <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginScreen />} />
+        <Route path="/" element={<HomeScreen></HomeScreen>} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
 

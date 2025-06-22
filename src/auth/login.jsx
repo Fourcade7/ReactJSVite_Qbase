@@ -104,14 +104,14 @@ function LoginScreen(){
    const [loginresult, setloginResult] = useState("");
 
 
-    const handleLogin = async () => {
+  const handleLogin = async () => {
    
-    const data = {
+  const data = {
       phonenumber: phone,
       password: password
-    };
+  };
 
-    try {
+  try {
       setShow(true);
       setTitle("Requesting...");
 
@@ -141,11 +141,12 @@ function LoginScreen(){
 
  
 
-    return(
-      <div data-bs-theme="darkx" className="container-fluid vh-100 bg-darkx">
-        <div data-bs-theme="darkx" className="container-sm vh-100 w-50 bg-darkx">
-                <NavbarScreen></NavbarScreen>
-                <div  data-bs-theme="darkx" className="h-75 d-flex align-items-center justify-content-center">
+  return(
+      
+          <div  className="container-fluid p-0 m-0 vh-100  ">
+                <div className="container-fluid bg-primary p-0 m-0"><NavbarScreen></NavbarScreen></div>
+                <div className="h-75 d-flex align-items-center justify-content-center">
+                  <div   className="w-50 d-flex align-items-center justify-content-center">
                   <Col  className="col-12 col-xl-6 col-md-8 col-lg-7 col-sm-12">
                       <motion.div layout >
                         <Col className="d-flex align-items-center justify-content-center">
@@ -233,10 +234,11 @@ function LoginScreen(){
                         </motion.div>
                    
                     
-                    </Col>
+                  </Col>
+                </div>
                 </div>
         </div>
-        </div>
+        
     )
 
 }

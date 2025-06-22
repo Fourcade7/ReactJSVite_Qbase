@@ -47,8 +47,6 @@ function RegisterScreen(){
     try {
       setShow(true);
       setTitle("Requesting...");
-
-
       const response = await regReq(data); // login request yuborildi
 
       const result= await response.json();
@@ -72,9 +70,6 @@ function RegisterScreen(){
       }
       setShow(false);
       setTitle("Register");
-     
-
-
     } catch (error) {
       console.error("Error:", error);
       setregResult(error)
@@ -87,10 +82,10 @@ function RegisterScreen(){
  
 
     return(
-      <div data-bs-theme="darkx" className="container-fluid vh-100 bg-darkx">
-        <div data-bs-theme="darkx" className="container-sm vh-100 w-50 bg-darkx">
-                <NavbarScreen></NavbarScreen>
-                <div  data-bs-theme="darkx" className="h-75 d-flex align-items-center justify-content-center">
+      <div  className="container-fluid p-0 m-0 vh-100  ">
+                <div className="container-fluid bg-primary p-0 m-0"><NavbarScreen></NavbarScreen></div>
+                <div className="h-75 d-flex align-items-center justify-content-center">
+                  <div   className="w-50 d-flex align-items-center justify-content-center">
                   <Col  className="col-12 col-xl-6 col-md-8 col-lg-7 col-sm-12">
                       <motion.div layout >
                         <Col className="d-flex align-items-center justify-content-center">

@@ -7,16 +7,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavbarExample() {
   return (
-    <Navbar expand="lg" className="bg-darkx bg-body-tertiary rounded">
+    <Navbar expand="lg" bg="primary" data-bs-theme="dark" className="container w-75">
       <Container>
-        <Navbar.Brand className='ms-3' href="#home">Qbase</Navbar.Brand>
+        <Navbar.Brand className='' href="#home">Qbase</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown  title="Dropdown"  id="basic-nav-dropdown">
+              <NavDropdown.Item  href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
