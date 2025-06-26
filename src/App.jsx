@@ -6,6 +6,7 @@ import { Route } from "react-router-dom"
 import LoginScreen from "./auth/login"
 import RegisterScreen from "./auth/register"
 import { HomeScreen } from "./home/home"
+import { DetailScreen } from "./detail/detailScreen"
 
 
 //945540308 913740377
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<HomeScreen></HomeScreen>} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
+        <Route path="/detail" element={<DetailScreen />} />
 
       </Routes>
     </BrowserRouter>

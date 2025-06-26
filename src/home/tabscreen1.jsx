@@ -2,12 +2,17 @@ import { useState, useEffect } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Badge, Col, Row } from 'react-bootstrap';
-import { getAllUserPag } from './homeApi';
-
 import Spinner from 'react-bootstrap/Spinner';
 import { Alert } from 'react-bootstrap';
 
+
+import { getAllUserPag } from './homeApi';
+import { useNavigate } from 'react-router-dom';
+
 function TabScreen1() {
+
+  const navigate=useNavigate();
+
   const [active, setActive] = useState(1);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(6);
@@ -56,6 +61,16 @@ function TabScreen1() {
     );
   }
 
+
+
+  const handleDetail=(id,username)=>{
+    const data={
+      username:username,
+      id:id
+    }
+    navigate("/detail",{state:data});
+  }
+
   // UI
   return (
     <div style={{ height: '80vh' }} className='bg-primar d-flex flex-column'>
@@ -75,7 +90,7 @@ function TabScreen1() {
         <ListGroup as="ol">
           {usersResult.users.map((user, index) => (
             <ListGroup.Item className="d-flex justify-content-between align-items-start" key={index}
-             action onClick={()=>{console.log(user.username)}}
+             action onClick={()=>{handleDetail(user.id,user.username)}}
               
             >
               
