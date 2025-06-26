@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Badge, Col } from 'react-bootstrap';
+import { Badge, Col, Row } from 'react-bootstrap';
 import { getAllUserPag } from './homeApi';
+
+import Spinner from 'react-bootstrap/Spinner';
+import { Alert } from 'react-bootstrap';
 
 function TabScreen1() {
   const [active, setActive] = useState(1);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(6);
+  const [allPage, setAllPage] = useState(0);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [usersResult, setUsersResult] = useState(null);
@@ -19,10 +24,11 @@ function TabScreen1() {
       const response = await getAllUserPag(page, limit);
       const result = await response.json();
       console.log(result);
+      setAllPage(result.allpages)
       setUsersResult(result);
     } catch (err) {
       console.error(err);
-      setError("Ma'lumot olishda xatolik yuz berdi");
+      setError("Что-то сломалось.");
     } finally {
       setLoading(false);
     }
@@ -33,8 +39,9 @@ function TabScreen1() {
   }, [page, limit]);
 
   let items = [];
-  for (let number = 1; number <= 10; number++) {
+  for (let number = 1; number <= allPage; number++) {
     items.push(
+      <Col>
       <Pagination.Item
         onClick={() => {
           setActive(number);
@@ -45,6 +52,7 @@ function TabScreen1() {
       >
         {number}
       </Pagination.Item>
+      </Col>
     );
   }
 
@@ -52,25 +60,56 @@ function TabScreen1() {
   return (
     <div style={{ height: '80vh' }} className='bg-primar d-flex flex-column'>
 
-      {loading && <div>Loading...</div>}
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {loading && 
+      <div className=' p-4 h-100 d-flex flex-column align-items-center justify-content-center'> 
+              <Spinner size='50' animation="border" variant="primary" />
+              <h6 className='mt-3'>Загрузка...</h6>
+        </div>}
+      {error && 
+        <Alert variant="danger">
+          {error}
+        </Alert>
+      }
 
       {!loading && usersResult && (
-        <ListGroup as="ol" numbered>
+        <ListGroup as="ol">
           {usersResult.users.map((user, index) => (
-            <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start" key={index}>
+            <ListGroup.Item className="d-flex justify-content-between align-items-start" key={index}
+             action onClick={()=>{console.log(user.username)}}
+              
+            >
+              
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{user.username} {user.surname}</div>
-                {user.phonenumber}
+                 <div className='w-100'>
+                    <div className=''>{user.phonenumber}</div>
+                 </div>
+                
               </div>
-              <Badge bg="primary" pill>{user.id}</Badge>
+              <div className="ms-2 d-fle flex-column">
+                
+                  <div><Badge bg="success" pill> {user.sex === 1 ? "М" : user.sex === 0 ? "Ж" : "Неизвестный"}</Badge></div> 
+                   <div><Badge bg="success " pill>Событий {user._count.partylist}</Badge></div> 
+                  
+                
+                
+              </div>
+               <div className="ms-2 d-flex flex-column justify-content-end align-items-end">
+                
+                  <div> <Badge bg="primary" pill>id {user.id}</Badge></div> 
+                   <div><Badge bg="success" pill>active</Badge></div> 
+                  
+                
+                
+              </div>
             </ListGroup.Item>
           ))}
         </ListGroup>
       )}
 
       <Col></Col>
-      <Pagination size="md">{items}</Pagination>
+      <Pagination className='' size="md"><Row className='row-cols-auto gx-1'>{items}</Row></Pagination>
+        
     </div>
   );
 }
