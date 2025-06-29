@@ -28,7 +28,7 @@ function TabScreen1() {
       setError(null);
       const response = await getAllUserPag(page, limit);
       const result = await response.json();
-      console.log(result);
+      //console.log(result);
       setAllPage(result.allpages)
       setUsersResult(result);
     } catch (err) {
@@ -63,11 +63,8 @@ function TabScreen1() {
 
 
 
-  const handleDetail=(id,username)=>{
-    const data={
-      username:username,
-      id:id
-    }
+  const handleDetail=(user)=>{
+    const data=user;
     navigate("/detail",{state:data});
   }
 
@@ -90,7 +87,7 @@ function TabScreen1() {
         <ListGroup as="ol">
           {usersResult.users.map((user, index) => (
             <ListGroup.Item className="d-flex justify-content-between align-items-start" key={index}
-             action onClick={()=>{handleDetail(user.id,user.username)}}
+             action onClick={()=>{handleDetail(user)}}
               
             >
               
@@ -103,7 +100,7 @@ function TabScreen1() {
               </div>
               <div className="ms-2 d-fle flex-column">
                 
-                  <div><Badge bg="success" pill> {user.sex === 1 ? "М" : user.sex === 0 ? "Ж" : "Неизвестный"}</Badge></div> 
+                  <div><Badge bg="success" pill> {user.sex === 1 ? "М" : user.sex === 0 ? "Неизвестный" : "Ж"}</Badge></div> 
                    <div><Badge bg="success " pill>Событий {user._count.partylist}</Badge></div> 
                   
                 
