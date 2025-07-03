@@ -12,8 +12,8 @@ function TabContent() {
       <Row className='mt-3 g-1'>
         <Col sm={3}>
           <ListGroup className='rounded-1'>
-            <ListGroup.Item action href="#link1">Все события</ListGroup.Item>
-            <ListGroup.Item action href="#link2">Пользователи</ListGroup.Item>
+            <ListGroup.Item action href="#link1">Пользователи</ListGroup.Item>
+            <ListGroup.Item action href="#link2">Все события</ListGroup.Item>
           </ListGroup>
         </Col>
         <Col sm={9}>

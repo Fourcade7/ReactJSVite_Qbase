@@ -41,8 +41,7 @@ function DetailScreen(){
             <div className="container-fluid bg-primary"><NavbarScreen></NavbarScreen></div>
             <div className="container-sm w-75">
                 
-            <h5 className="my-4">Данные пользователя</h5>
-            
+            <h5 className="my-4">Данные пользователя</h5>         
 
             <ListGroup>
             <ListGroup.Item action >Id: {data?.id}</ListGroup.Item>
